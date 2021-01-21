@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ungaicapp/utility/mystyle.dart';
 import 'package:ungaicapp/widget/informationuser.dart';
+import 'package:ungaicapp/widget/list_job_for_user.dart';
 
 class MyServiceUser extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class MyServiceUser extends StatefulWidget {
 }
 
 class _MyServiceUserState extends State<MyServiceUser> {
-  Widget currentWidget = InformationUser();
+  Widget currentWidget = ListJobForUser();
 
   @override
   void initState() {
