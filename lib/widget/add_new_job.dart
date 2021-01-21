@@ -91,6 +91,9 @@ class _AddNewJobState extends State<AddNewJob> {
         onPressed: () {
           if ((title?.isEmpty ?? true) || (todo?.isEmpty ?? true)) {
             normalDialog(context, 'Have Space ? Please Fill Every Blank');
+          } else if (checkChooseUser()) {
+          } else {
+            normalDialog(context, 'Non Assign User ? Please Choose User');
           }
         },
       );
@@ -113,7 +116,7 @@ class _AddNewJobState extends State<AddNewJob> {
                     title: Text(userModels[index].name),
                     onChanged: (value) {
                       setState(() {
-                        chooseUsers[index] = true;
+                        chooseUsers[index] = !chooseUsers[index];
                       });
                     },
                   ),
@@ -121,5 +124,15 @@ class _AddNewJobState extends State<AddNewJob> {
               ),
             ),
     );
+  }
+
+  bool checkChooseUser() {
+    bool result = false;
+    for (var item in chooseUsers) {
+      if (item) {
+        result = true;
+      }
+    }
+    return result;
   }
 }
